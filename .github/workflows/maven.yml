@@ -26,9 +26,12 @@ jobs:
       run: |
         mvn -B package --file pom.xml
         mkdir staging && cp target/*.jar staging
-           
+  Download: 
+    runs-on: ubuntu-latest
+
+    steps:
     - name: persistent workflow azs artifact 
-      uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v2
       with:
         name: my-artifact
         path: staging
