@@ -23,11 +23,12 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
-           mkdir staging && cp target/*.jar staging
+      run: |
+        mvn -B package --file pom.xml
+        mkdir staging && cp target/*.jar staging
            
     - name: persistent workflow azs artifact 
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2
       with:
         name: my-artifact
         path: staging
