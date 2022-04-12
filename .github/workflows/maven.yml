@@ -24,10 +24,8 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: |
-         
-    - run: npm install -g mocha
-    - run: npm install
-        mkdir staging && cp target/*.jar staging
+          mvn -B package --file pom.xml
+          mkdir staging && cp target/*.jar staging
     - name: persistent workflow azs artifact 
       uses: actions/upload-artifact@v2
       with:
