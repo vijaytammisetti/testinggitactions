@@ -24,7 +24,7 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: |
-         cache: 'npm'
+         
     - run: npm install -g mocha
     - run: npm install
         mkdir staging && cp target/*.jar staging
